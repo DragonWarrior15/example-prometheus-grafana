@@ -28,3 +28,34 @@ request_processing_seconds_sum 130.79554020400974
 request_processing_seconds_created 1.776709245650259e+09
 ```
 - These are the _metrics_ exposed by our _app_
+
+## Prometheus
+### Get your IP Address
+- `ifconfig | grep "inet " | grep -v "127.0.0.1"`
+- Use this when creating `prometheus.yml`
+
+### Local Setup
+- Create a local directory to store prometheus data `prometheus_data`
+- Create a local configuration file `prometheus.yml`
+
+### Install `brew`
+- `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+### Install Docker
+- `brew install docker`
+- Also install and run Docker Desktop
+
+### Docker Image
+- Download image from docker
+    ```bash
+    docker pull prom/prometheus
+    ```
+
+### Start Prometheus
+- Ensure current working directory is `example-prometheus-grafana`
+```bash
+docker run -p 9090:9090 \
+    -v ./prometheus.yml:/etc/prometheus/prometheus.yml:ro \
+    -v prometheus_data:/prometheus \
+    prom/prometheus
+```
