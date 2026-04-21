@@ -56,6 +56,11 @@ request_processing_seconds_created 1.776709245650259e+09
 ```bash
 docker run -p 9090:9090 \
     -v ./prometheus.yml:/etc/prometheus/prometheus.yml:ro \
-    -v prometheus_data:/prometheus \
+    -v ./prometheus_data:/prometheus \
     prom/prometheus
 ```
+
+### Checks
+- Under `Status > Target Health`, two endpoints `prometheus` and `sleep_time` should not be visible
+- Under `Query > Graph` tab, type in `rate(request_processing_seconds_count[30s])` to see graphs for the summary metric `request_processing_seconds_count`
+- ![Hello](screenshots/01_rate_graph.png)
