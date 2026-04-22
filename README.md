@@ -64,3 +64,24 @@ docker run -p 9090:9090 \
 - Under `Status > Target Health`, two endpoints `prometheus` and `sleep_time` should not be visible
 - Under `Query > Graph` tab, type in `rate(request_processing_seconds_count[30s])` to see graphs for the summary metric `request_processing_seconds_count`
 - ![Hello](screenshots/01_rate_graph.png)
+
+## Grafana
+### Docker Image
+```bash
+docker pull grafana/grafana
+```
+
+### Run Grafana
+```
+docker run -p 3000:3000 --name grafana grafana/grafana
+```
+- Available at `https://localhost:3000`
+- user name and password are `admin`
+
+### Configuration
+- Go to `Connections > Data Sources`
+- Select Prometheus
+- Add the Prometheus URL (`https://<Machine IP>:9000`)
+
+### Sample Dashboard
+- ![Sample Dashboard](screenshots/02_rate_graph_grafana.png)
