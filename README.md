@@ -85,3 +85,4 @@ docker run -p 3000:3000 --name grafana grafana/grafana
 
 ### Sample Dashboard
 - ![Sample Dashboard](screenshots/02_rate_graph_grafana.png)
+- More examples are stored in [screenshots](screenshots)

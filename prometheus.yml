@@ -33,6 +33,6 @@ scrape_configs:
 
   - job_name: "sleep_time"
     static_configs:
-    - targets: ["<your-ip-address>:8000"]
+    - targets: ["192.168.29.27:8000"]
       labels:
         app: "sleep_time"
