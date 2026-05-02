@@ -86,3 +86,7 @@ docker run -p 3000:3000 --name grafana grafana/grafana
 ### Sample Dashboard
 - ![Sample Dashboard](screenshots/02_rate_graph_grafana.png)
 - More examples are stored in [screenshots](screenshots)
+
+## Build a `/metrics` endpoint in the App
+- Launch `main_v2.py` using `uvicorn main_v2:app --reload`
+- Then use `curl http://localhost:8000/metrics` to fetch data from that endpoint
