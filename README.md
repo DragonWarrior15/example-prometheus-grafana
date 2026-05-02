@@ -88,5 +88,17 @@ docker run -p 3000:3000 --name grafana grafana/grafana
 - More examples are stored in [screenshots](screenshots)
 
 ## Build a `/metrics` endpoint in the App
-- Launch `main_v2.py` using `uvicorn main_v2:app --reload`
+- Launch `main_v2.py` using `python main_v2.py`
 - Then use `curl http://localhost:8000/metrics` to fetch data from that endpoint
+- Sample output
+    ```
+    # HELP counter_slow_total A simple Counter for slow updating metrics
+    # TYPE counter_slow_total counter
+    counter_slow_total 2.0
+    # HELP counter_slow_created A simple Counter for slow updating metrics
+    # TYPE counter_slow_created gauge
+    counter_slow_created 1.777704490697922e+09
+    # HELP gauge_fast A simple Gauge for fast updating metrics
+    # TYPE gauge_fast gauge
+    gauge_fast 32.0
+    ```
